@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page-bg: #f6f4ef;
+  --page-fg: #0c0c0f;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --radius-xl: 28px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.4) transparent;
+}
+
+body {
+  font-family: "Manrope", "Inter", "Segoe UI", "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  @apply bg-[color:var(--page-bg)] text-gray-900 antialiased;
+  min-height: 100vh;
+}
+
+body::selection {
+  background: #0d0d10;
+  color: white;
+}
+
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
+
+.card {
+  @apply rounded-3xl border border-[color:var(--card-border)] bg-[color:var(--card-bg)];
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-2xl border border-gray-300 px-5 py-2.5 text-sm font-semibold transition-all hover:-translate-y-[1px] hover:shadow-md;
+}
+
+.btn-primary {
+  @apply border-transparent bg-gray-900 text-white hover:bg-black;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+}
+
+.badge {
+  @apply inline-block rounded-full bg-gray-900/5 px-3 py-1 text-xs font-medium text-gray-700;
+}
+
+input,
+select {
+  @apply rounded-2xl border-gray-200 px-4 py-2 focus:border-gray-900 focus:ring-0;
+}
+
+.eyebrow {
+  @apply text-xs uppercase tracking-[0.3em] text-gray-500;
+}
+
+.surface {
+  @apply rounded-3xl border border-[color:var(--card-border)] bg-white/80 shadow-lg;
+}
