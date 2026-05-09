@@ -29,6 +29,7 @@ export default function AddToCart({
 
       if (res.ok) {
         setQty(1);
+        window.dispatchEvent(new Event("cart:changed"));
         router.refresh();
       }
     });

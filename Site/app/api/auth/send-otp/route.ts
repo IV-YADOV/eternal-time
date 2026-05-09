@@ -1,8 +1,8 @@
-"use server";
-
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-export async function sendOtpCode(phone: string) {
+export async function POST(req: NextRequest) {
+  const { phone } = await req.json();
   const digits = phone.replace(/\D/g, "");
   const normalized = digits.startsWith("7") ? digits : "7" + digits.replace(/^8/, "");
 
@@ -18,28 +18,21 @@ export async function sendOtpCode(phone: string) {
     });
 
     const data = await res.json();
+    console.log("Zvonok response:", JSON.stringify(data));
 
     if (data.status !== "ok") {
-      return { success: false, error: "Не удалось совершить звонок" };
+      return NextResponse.json({ success: false, error: "Не удалось совершить звонок" });
     }
 
     const pincode = String(data.data?.pincode);
     await prisma.otpCode.deleteMany({ where: { phone } });
     await prisma.otpCode.create({
-      data: {
-        phone,
-        code: pincode,
-        expiresAt: new Date(Date.now() + 5 * 60 * 1000),
-      },
+      data: { phone, code: pincode, expiresAt: new Date(Date.now() + 5 * 60 * 1000) },
     });
 
-    return { success: true };
+    return NextResponse.json({ success: true });
   } catch (e) {
-    console.error("Zvonok error:", e);
-    return { success: false, error: "Ошибка связи со службой звонков" };
+    console.error("Send OTP error:", e);
+    return NextResponse.json({ success: false, error: "Ошибка сервера" });
   }
-}
-
-export async function verifyOtpCode(phone: string, code: string) {
-  return { success: false, error: "use_api" };
 }

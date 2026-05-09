@@ -2,3 +2,15 @@ node_modules/
 .DS_Store
 dist/
 build/
+# Environment
+Site/.env
+Site/.env.save
+
+# Uploads
+uploads/
+
+# Import logs
+importer/import-log-*.json
+
+# Local scripts
+fix-db.sh

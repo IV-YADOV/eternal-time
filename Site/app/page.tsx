@@ -100,9 +100,9 @@ export default async function Home() {
 
         <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 grid-cols-3 gap-16 lg:grid">
           {[
-            { v: "0%", l: "Оригинал" },
-            { v: "нулевой", l: "Сервис" },
-            { v: "0-", l: "Клиентов" }
+            { v: "100%", l: "Оригинал" },
+            { v: "0 фейков", l: "Проверено" },
+            { v: "Япония", l: "Напрямую" }
           ].map((s, i) => (
             <Reveal key={s.l} delay={0.3 + (i * 0.1)}>
               <div className="text-center group/stat cursor-default">

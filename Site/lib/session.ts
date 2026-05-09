@@ -20,14 +20,14 @@ function verify(signed?: string | null) {
 
 export async function createSessionForUser(userId: string) {
   const raw = randomBytes(24).toString("base64url");
-  await prisma.session.create({ data: { userId, token: raw } });
+  console.log("Creating session for user:", userId); await prisma.session.create({ data: { userId, token: raw } });
 
   cookies().set({
     name: COOKIE,
     value: sign(raw),
     httpOnly: true,
     sameSite: "lax",
-    secure: true,
+    secure: false,
     path: "/",
   });
 }

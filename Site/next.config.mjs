@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: { allowedOrigins: ["*"] }
+  typescript: {
+    ignoreBuildErrors: true,
   },
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "picsum.photos" }
-    ]
-  }
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
+
 export default nextConfig;

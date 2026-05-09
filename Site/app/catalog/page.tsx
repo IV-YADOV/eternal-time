@@ -176,7 +176,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
   if (searchParams.new === "1") activeFilters.push({ label: "Новинки", href: buildUrlWithout("new") });
 
   return (
-    <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+    <div className="mx-auto max-w-[1400px] px-3 py-8 sm:px-6 lg:px-8 lg:py-12">
 
       {/* Шапка раздела */}
       <section className="relative mb-8 overflow-hidden rounded-[2.5rem] bg-zinc-950 px-6 py-12 text-center shadow-2xl sm:mb-12 sm:px-16 sm:py-20">
@@ -249,7 +249,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         </aside>
 
         {/* Товары */}
-        <div className="space-y-8">
+        <div className="space-y-8 min-w-0">
 
           {/* Счётчик */}
           <div className="flex items-center justify-between text-sm text-zinc-500">
@@ -281,7 +281,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
           ) : (
             <>
               {/* Сетка товаров */}
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-6">
                 {products.map((p) => (
                   <ProductCard key={p.slug} product={p as any} />
                 ))}
@@ -317,7 +317,7 @@ function Pagination({
   // Генерируем диапазон страниц с многоточием
   const getPages = () => {
     const pages: (number | "...")[] = [];
-    const delta = 2; // соседние страницы вокруг текущей
+    const delta = 1; // соседние страницы вокруг текущей
 
     const left = Math.max(2, currentPage - delta);
     const right = Math.min(totalPages - 1, currentPage + delta);
@@ -332,7 +332,7 @@ function Pagination({
   };
 
   const btnBase =
-    "flex h-10 min-w-[2.5rem] items-center justify-center rounded-full px-3 text-sm font-semibold transition-all";
+    "flex h-9 min-w-[2.25rem] items-center justify-center rounded-full px-2 text-xs sm:h-10 sm:min-w-[2.5rem] sm:px-3 sm:text-sm font-semibold transition-all";
 
   return (
     <nav className="flex items-center justify-center gap-1 pt-4" aria-label="Пагинация">

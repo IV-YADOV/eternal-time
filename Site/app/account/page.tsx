@@ -101,7 +101,7 @@ export default async function AccountPage() {
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">Личный кабинет</h1>
         </div>
         <Link
-          href="api/auth/logout"
+          href="/api/auth/logout" prefetch={false}
           className="group flex items-center gap-2 text-sm font-semibold text-zinc-500 transition-colors hover:text-red-600 pb-1"
         >
           <span>Выйти из аккаунта</span>

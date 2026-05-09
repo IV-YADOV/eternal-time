@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { sendOtpCode, verifyOtpCode } from "@/app/actions/auth";
+
 
 export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [step, setStep] = useState<1 | 2>(1);
@@ -58,9 +58,9 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
   // --- ЛОГИКА ВВОДА КОДА ---
   const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value.replace(/\D/g, "").substring(0, 6);
+    const val = e.target.value.replace(/\D/g, "").substring(0, 4);
     setCode(val);
-    if (val.length === 6) setError("");
+    if (val.length === 4) setError("");
   };
 
   // Автофокус на код при переходе на шаг 2
@@ -82,7 +82,7 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
     if (rawPhone.length < 11) { setError("Введите полный номер"); return; }
     
     setError(""); setIsLoading(true);
-    const res = await sendOtpCode(phone);
+    const res = await fetch("/api/auth/send-otp", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ phone }) }).then(r => r.json());
     setIsLoading(false);
     if (res.success) setStep(2);
     else setError("Ошибка сети");
@@ -90,10 +90,10 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
 
   const handleVerifyCode = async (e?: React.FormEvent) => {
     e?.preventDefault();
-    if (code.length < 6) return;
+    if (code.length < 4) return;
     
     setError(""); setIsLoading(true);
-    const res = await verifyOtpCode(phone, code);
+    const res = await fetch("/api/auth/phone", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ phone, code }) }).then(r => r.json());
     setIsLoading(false);
     if (res.success) {
       window.location.href = "/account"; 
@@ -150,7 +150,7 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
                 <input
                   ref={hiddenInputRef}
                   type="text"
-                  maxLength={6}
+                  maxLength={4}
                   value={code}
                   onChange={handleCodeChange}
                   className="absolute inset-0 opacity-0 cursor-default"
@@ -158,7 +158,7 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
                 />
                 
                 {/* Визуальные ячейки */}
-                {[...Array(6)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
                     className={`
@@ -177,7 +177,7 @@ export default function AuthModal({ isOpen, onClose }: { isOpen: boolean; onClos
               <div className="space-y-4">
                 <button
                   onClick={() => handleVerifyCode()}
-                  disabled={isLoading || code.length < 6}
+                  disabled={isLoading || code.length < 4}
                   className="h-16 w-full rounded-2xl bg-[#E5E4E2] text-[11px] font-black uppercase tracking-[0.25em] text-zinc-900 transition-all hover:bg-white active:scale-[0.97] disabled:opacity-50 shadow-xl shadow-white/5"
                 >
                   {isLoading ? "Синхронизация..." : "Войти в аккаунт"}

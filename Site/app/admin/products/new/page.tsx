@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 // app/admin/products/new/page.tsx
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";

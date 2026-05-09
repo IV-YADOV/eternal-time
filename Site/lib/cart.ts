@@ -12,7 +12,7 @@ async function setCartCookie(id: string) {
   store.set(CART_COOKIE, id, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: false,
     path: "/",
     maxAge: 60 * 60 * 24 * 30, // 30 дней
   });
