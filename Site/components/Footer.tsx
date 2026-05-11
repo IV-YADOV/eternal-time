@@ -37,7 +37,7 @@ export default function Footer() {
                 Смотреть каталог
               </Link>
               <a
-                href="https://t.me/EternalTime"
+                href="https://t.me/eternaltime24"
                 className="inline-flex h-14 items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10 active:scale-[0.98]"
               >
                 Написать в Telegram
@@ -88,23 +88,23 @@ export default function Footer() {
                 Связь
               </div>
               <div className="space-y-3">
-                <a className="group flex items-center gap-3 text-sm font-semibold text-zinc-900 transition-colors hover:text-zinc-500" href="mailto:support@EternalTime.store">
+                <a className="group flex items-center gap-3 text-sm font-semibold text-zinc-900 transition-colors hover:text-zinc-500" href="mailto:support@eternal-time.online">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-colors group-hover:bg-zinc-50 group-hover:text-zinc-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="20" height="16" x="2" y="4" rx="2"/>
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                     </svg>
                   </span>
-                  support@EternalTime.store
+                  support@eternal-time.online
                 </a>
-                <a className="group flex items-center gap-3 text-sm font-semibold text-zinc-900 transition-colors hover:text-zinc-500" href="https://t.me/EternalTime">
+                <a className="group flex items-center gap-3 text-sm font-semibold text-zinc-900 transition-colors hover:text-zinc-500" href="https://t.me/eternaltime24">
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-600 transition-colors group-hover:bg-zinc-50 group-hover:text-zinc-600">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m22 2-7 20-4-9-9-4Z"/>
                       <path d="M22 2 11 13"/>
                     </svg>
                   </span>
-                  @EternalTime
+                  @eternaltime24  
                 </a>
               </div>
               <p className="text-xs text-zinc-500 leading-relaxed border-l-2 border-zinc-400 pl-3">
