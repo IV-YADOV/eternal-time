@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 // app/about/page.tsx
 export const metadata = {
   title: "О сервисе — EternalTime",

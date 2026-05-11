@@ -56,6 +56,11 @@ export default function Footer() {
               <p className="text-sm leading-relaxed text-zinc-500 pr-4">
                 Магазин оригинальных часов на основе параллельного импорта и персонализированным сервисом полного цикла.
               </p>
+              <div className="space-y-1 text-[11px] text-zinc-400 leading-relaxed">
+                <p className="text-zinc-600 font-semibold">ИП СОЛОВЬЕВ С.С.</p>
+                <p>ИНН: <span className="text-zinc-600 font-medium">790153027990</span></p>
+                <p>ОГРНИП: <span className="text-zinc-600 font-medium">325270000040020</span></p>
+              </div>
               <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
                 © {year} EternalTime
               </p>

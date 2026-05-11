@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 // app/catalog/page.tsx
 import { prisma } from "@/lib/prisma";
 import ProductCard from "@/components/ProductCard";

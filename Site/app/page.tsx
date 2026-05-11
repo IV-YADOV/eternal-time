@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import Reveal from "@/components/Reveal"; // Убедитесь, что путь совпадает с вашим

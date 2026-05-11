@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 // app/blog/page.tsx
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
